@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_home_bar"
+            android:icon="@drawable/ic_home"
+            android:title="Home"
+            android:checked="true" />
+        <item
+        android:id="@+id/search_ebook"
+        android:icon="@drawable/ic_search"
+        android:title="Search ebook" />
+        <item
+            android:id="@+id/uploadEbook"
+            android:icon="@drawable/ic_post"
+            android:title="Upload Ebook" />
+        <item
+            android:id="@+id/category"
+            android:icon="@drawable/ic_baseline_category"
+            android:title="Category" />
+        <item
+            android:id="@+id/chat"
+            android:icon="@drawable/ic_baseline_chat_24"
+            android:title="Chat App" />
+
+        <item
+            android:id="@+id/settings"
+            android:icon="@drawable/ic_baseline_settings_applications_24"
+            android:title="Settings" />
+
+
+    </group>
+    <item android:title="Profile">
+
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/profile"
+                    android:icon="@drawable/ic_person"
+                    android:title="Profile" />
+                <item
+                    android:id="@+id/logout"
+                    android:icon="@drawable/ic_baseline_out"
+                    android:title="Logout" />
+
+
+            </group>
+        </menu>
+
+    </item>
+    <item android:title="Category">
+
+        <menu>
+            <group android:checkableBehavior="single">
+
+                <item
+                    android:id="@+id/cook"
+                    android:icon="@drawable/ic_baseline_cook"
+                    android:title="Cook" />
+                <item
+                    android:id="@+id/design"
+                    android:icon="@drawable/ic_baseline_design"
+                    android:title="Design" />
+                <item
+                    android:id="@+id/it"
+                    android:icon="@drawable/ic_baseline_computer"
+                    android:title="It" />
+
+
+            </group>
+        </menu>
+
+    </item>
+    <item android:title="Share">
+
+        <menu>
+            <group android:checkableBehavior="none">
+
+                <item
+                    android:id="@+id/share"
+                    android:icon="@drawable/ic_baseline_share"
+                    android:title="Share" />
+                <item
+                    android:id="@+id/rate_us"
+                    android:icon="@drawable/ic_baseline_rate_review"
+                    android:title="Rate us" />
+
+
+            </group>
+        </menu>
+
+    </item>
+</menu>

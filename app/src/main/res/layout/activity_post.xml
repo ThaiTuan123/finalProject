@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PostActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/windowBackground">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/windowBackground">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/close"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:src="@drawable/ic_close" />
+
+                <!--            <TextView-->
+                <!--                android:id="@+id/post"-->
+                <!--                android:layout_width="wrap_content"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:layout_alignParentEnd="true"-->
+                <!--                android:layout_centerVertical="true"-->
+                <!--                android:layout_marginRight="15dp"-->
+                <!--                android:text="POST"-->
+                <!--                android:textColor="@color/colorPrimary"-->
+                <!--                android:textSize="18sp"-->
+                <!--                />-->
+
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/image_added"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:background="@drawable/border_image"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ic_launcher" />
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:hint="Title">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:hint="Author">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/author"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:background="@drawable/spinner_bg"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:spinnerMode="dropdown"
+            android:layout_marginTop="15dp">
+
+        </Spinner>
+
+        <com.hendraanggrian.appcompat.widget.SocialAutoCompleteTextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:hint="Description..."
+            android:padding="10dp"
+            android:maxLines="5"
+            app:hashtagColor="@color/colorPrimary"
+            app:socialFlags="hashtag|mention"
+            android:background="#DADADA"/>
+
+
+        <!--        <TextView-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="15dp"-->
+        <!--            android:text="Rating book" />-->
+
+        <!--        <RatingBar-->
+        <!--            android:id="@+id/rating_bar"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            style="?android:attr/starStyle"-->
+        <!--            android:numStars="5"-->
+        <!--            android:rating   = "1"-->
+        <!--            android:theme="@style/RatingBar"-->
+        <!--            android:stepSize="0.5"-->
+        <!--            android:isIndicator="true"/>-->
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/post"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/colorBlack"
+        android:elevation="2dp"
+        android:text="Post"
+        app:icon="@drawable/ic_add" />
+</LinearLayout>
