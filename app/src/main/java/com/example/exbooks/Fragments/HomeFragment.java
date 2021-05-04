@@ -28,11 +28,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.exbooks.AboutUsActivity;
 import com.example.exbooks.Adapter.PostAdapter;
 import com.example.exbooks.Model.Post;
 import com.example.exbooks.OptionsActivity;
 import com.example.exbooks.R;
 import com.example.exbooks.StartActivity;
+import com.example.exbooks.UploadEbookActivity;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -214,11 +216,13 @@ public class HomeFragment extends Fragment implements NavigationView.OnNavigatio
                 Toast.makeText(getActivity(), "Home ", LENGTH_SHORT).show();
                 break;
 
-            case R.id.search_ebook:
-                Toast.makeText(getActivity(), "Search Ebook ", Toast.LENGTH_SHORT).show();
+            case R.id.ebook:
+                Toast.makeText(getActivity(), " Ebook ", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.uploadEbook:
                 Toast.makeText(getActivity(), "Upload Ebook ", Toast.LENGTH_SHORT).show();
+                Intent intentEbook = new Intent(getActivity(), UploadEbookActivity.class);
+                startActivity(intentEbook);
                 break;
             case R.id.chat:
                 Toast.makeText(getActivity(), "Chat ", Toast.LENGTH_SHORT).show();
@@ -233,9 +237,13 @@ public class HomeFragment extends Fragment implements NavigationView.OnNavigatio
                 showDialog();
                 break;
 
-            case R.id.profile:
-                Toast.makeText(getActivity(), "profile ", Toast.LENGTH_SHORT).show();
-                break;
+//            case R.id.profile:
+////                Intent i = new Intent(getActivity(), ProfileFragment.class);
+////                startActivity(i);
+//
+////                startActivity(new Intent(getActivity() , ProfileFragment.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK));
+//               Toast.makeText(getActivity(), "profile ", Toast.LENGTH_SHORT).show();
+//                break;
 
             case R.id.logout:
                 Toast.makeText(getActivity(), "logout ", Toast.LENGTH_SHORT).show();
@@ -283,6 +291,11 @@ public class HomeFragment extends Fragment implements NavigationView.OnNavigatio
                     startActivity(marketIntent);
                 }
 
+                break;
+
+            case R.id.about_us:
+
+                startActivity(new Intent(getActivity() , AboutUsActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK));
                 break;
 
 

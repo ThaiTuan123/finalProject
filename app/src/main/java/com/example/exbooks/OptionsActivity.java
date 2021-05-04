@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class OptionsActivity extends AppCompatActivity {
 
 
-    private TextView settings;
+    private TextView aboutUs;
     private TextView logOut;
 
     @Override
@@ -24,7 +24,7 @@ public class OptionsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_options);
 
-        settings = findViewById(R.id.settings);
+        aboutUs = findViewById(R.id.aboutUs);
         logOut = findViewById(R.id.logout);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -48,10 +48,12 @@ public class OptionsActivity extends AppCompatActivity {
             }
         });
 
-        settings.setOnClickListener(new View.OnClickListener() {
+        aboutUs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(OptionsActivity.this,"settting ",Toast.LENGTH_SHORT).show();
+                Toast.makeText(OptionsActivity.this,"About us ",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(OptionsActivity.this , AboutUsActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK));
+
             }
         });
 

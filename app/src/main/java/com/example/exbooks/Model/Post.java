@@ -14,6 +14,11 @@ public class Post {
 
     private String category;
 
+
+
+    private String title;
+    private String author;
+
     private String  date;
     private String time;
 
@@ -24,12 +29,15 @@ public class Post {
     }
 
 
-    public Post(String description, String imageurl, String postid, String publisher, String date, String time,String category) {
+    public Post(String description, String imageurl, String postid, String publisher, String date, String time,String category,String title, String author) {
         this.description = description;
         this.imageurl = imageurl;
         this.postid = postid;
         this.publisher = publisher;
         this.category = category;
+
+        this.title = title;
+        this.author = author;
 
         this.date = date;
         this.time = time;
@@ -99,5 +107,21 @@ public class Post {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 }

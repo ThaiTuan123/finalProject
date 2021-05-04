@@ -38,8 +38,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
+import com.google.firebase.storage.UploadTask;
 import com.hendraanggrian.appcompat.socialview.Hashtag;
 import com.hendraanggrian.appcompat.widget.HashtagArrayAdapter;
 import com.hendraanggrian.appcompat.widget.SocialAutoCompleteTextView;
@@ -152,13 +154,14 @@ public class PostActivity extends AppCompatActivity implements AdapterView.OnIte
     private void upload() {
 
         final ProgressDialog pd = new ProgressDialog(this);
-        pd.setMessage("Posting");
+        pd.setMessage("Upload...");
         pd.show();
 
         if (imageUri != null) {
             final StorageReference filePath = FirebaseStorage.getInstance().getReference("Posts").child(System.currentTimeMillis() + "." + getFileExtension(imageUri));
 
             StorageTask uploadtask = filePath.putFile(imageUri);
+
             uploadtask.continueWithTask(new Continuation() {
                 @Override
                 public Object then(@NonNull Task task) throws Exception {
@@ -237,11 +240,22 @@ public class PostActivity extends AppCompatActivity implements AdapterView.OnIte
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
+                    pd.dismiss();
                     Toast.makeText(PostActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     MediaPlayer music = MediaPlayer.create(PostActivity.this, R.raw.error);
                     music.start();
                 }
             });
+
+//  find this bug late
+//                .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+//                @Override
+//                public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+//                    double progress = (100.0 * snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
+//                    pd.setMessage("Uploaded " + ((int) progress) + "%...");
+//                }
+//            });
+
         } else {
             Toast.makeText(this, "No image was selected!", Toast.LENGTH_SHORT).show();
             MediaPlayer music = MediaPlayer.create(PostActivity.this, R.raw.error);
@@ -305,7 +319,6 @@ public class PostActivity extends AppCompatActivity implements AdapterView.OnIte
     // spinner
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        spinner.setSelection(0,false);
         item = spinner.getSelectedItem().toString();
 
     }
