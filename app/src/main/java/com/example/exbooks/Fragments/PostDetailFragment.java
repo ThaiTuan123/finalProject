@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.exbooks.Adapter.PostAdapter;
@@ -37,6 +38,12 @@ public class PostDetailFragment extends Fragment {
     private RecyclerView recyclerView;
     private PostAdapter postAdapter;
     private List<Post> postList;
+
+
+//    // add
+//    TextView txtPostTitle;
+//    TextView txtPostAuthor;
+
 //    private ImageView close;
 
     @Override
@@ -50,6 +57,19 @@ public class PostDetailFragment extends Fragment {
 
 
         postId = getContext().getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("postid", "none");
+
+//        // Add
+//        txtPostTitle = view.findViewById(R.id.post_detail_title);
+//        txtPostAuthor = view.findViewById(R.id.post_detail_author);
+
+//        Bundle extras = getActivity().getIntent().getExtras();
+//
+//        String postTitle =extras.getString("title");
+//        txtPostTitle.setText(postTitle);
+//
+//        String txtPostAuthor =extras.getString("author");
+//        txtPostTitle.setText(txtPostAuthor);
+
 
         recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);

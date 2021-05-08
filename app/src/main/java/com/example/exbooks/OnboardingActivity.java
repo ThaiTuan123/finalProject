@@ -57,14 +57,14 @@ public class OnboardingActivity extends AppCompatActivity {
     private ArrayList<PaperOnboardingPage> getDataForOnboarding() {
 
         PaperOnboardingPage scr1 = new PaperOnboardingPage("Share information",
-                "All hotels and hostels are sorted by hospitality rating",
+                "Let's share information for mutual development",
                 Color.parseColor("#678FB4"), R.drawable.image, R.drawable.logo);
         PaperOnboardingPage scr2 = new PaperOnboardingPage("Borrow Book via Email",
-                "We carefully verify all banks before add them into the app",
-                Color.parseColor("#65B0B4"), R.drawable.ic_search, R.drawable.ic_baseline_email_24);
+                "You can borrow books by emailing the person you want to borrow",
+                Color.parseColor("#65B0B4"), R.drawable.about_icon_email, R.drawable.ic_baseline_email_24);
         PaperOnboardingPage scr3 = new PaperOnboardingPage("Make more Friends",
-                "All local stores are categorized for your convenience",
-                Color.parseColor("#9B90BC"), R.drawable.ic_home, R.drawable.ic_username);
+                "Make more friends to gain more knowledge",
+                Color.parseColor("#9B90BC"), R.drawable.ic_baseline_mobile_friendly, R.drawable.ic_username);
 
         ArrayList<PaperOnboardingPage> elements = new ArrayList<>();
         elements.add(scr1);

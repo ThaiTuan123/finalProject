@@ -6,7 +6,6 @@
     android:layout_height="wrap_content">
 
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,7 +33,7 @@
                 android:src="@drawable/ic_more" />
 
             <TextView
-                android:id="@+id/username"
+                android:id="@+id/email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -47,8 +46,8 @@
 
         </RelativeLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
+        <RelativeLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
             <ImageView
@@ -62,7 +61,14 @@
                 app:layout_constraintDimensionRatio="1:1"
                 tools:ignore="MissingConstraints" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/post_image"
+                android:src="@drawable/ic_right" />
+
+        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -78,8 +84,8 @@
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/like"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="24dp"
+                android:layout_height="22dp"
                 android:layout_centerVertical="true"
                 app:lottie_rawRes="@raw/loved" />
 
@@ -91,28 +97,42 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="3dp"
                 android:layout_toRightOf="@id/like"
+                android:text="15 likes"
                 android:textColor="@color/colorAccent"
                 android:textStyle="bold" />
 
             <ImageView
 
                 android:id="@+id/comment"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="60dp"
+                android:layout_marginStart="65dp"
                 android:layout_toEndOf="@id/like"
                 android:src="@drawable/ic_comment" />
 
-<!--            <TextView-->
+            <TextView
+                android:id="@+id/no_of_comments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_toRightOf="@id/comment"
+                android:text="15 comments"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold" />
 
-<!--                android:id="@+id/timepost"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="30dp"-->
-<!--                android:layout_centerVertical="true"-->
-<!--                android:layout_marginStart="10dp"-->
-<!--                android:layout_toEndOf="@id/comment"-->
-<!--                android:text="" />-->
+            <!--            <TextView-->
+
+            <!--                android:id="@+id/timepost"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="30dp"-->
+            <!--                android:layout_centerVertical="true"-->
+            <!--                android:layout_marginStart="10dp"-->
+            <!--                android:layout_toEndOf="@id/comment"-->
+            <!--                android:text="" />-->
 
             <Button
                 android:id="@+id/borrow"
@@ -120,7 +140,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="30dp"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/border_image"
                 android:backgroundTint="@color/colorBlack"
 
@@ -130,33 +150,93 @@
         </RelativeLayout>
 
 
-
-        <TextView
-
-            android:id="@+id/author"
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:textColor="@color/colorPrimaryDark"
-            android:textStyle="bold" />
+            android:layout_height="wrap_content">
 
-        <com.hendraanggrian.appcompat.widget.SocialTextView
-            android:id="@+id/description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:textColor="@color/colorAccent" />
+            <TextView
+                android:id="@+id/txt_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Title: "
+                android:textColor="@color/colorBlack" />
 
-        <TextView
-            android:id="@+id/no_of_comments"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:textColor="@color/colorAccent" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_toRightOf="@+id/txt_author"
+                android:text="Truyen Kieu"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_title"
+                android:layout_marginStart="10dp"
+                android:text="Author: "
+                android:textColor="@color/colorBlack" />
+
+
+            <TextView
+                android:id="@+id/author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title"
+                android:layout_marginStart="10dp"
+                android:layout_toRightOf="@+id/txt_author"
+                android:text="tuan"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_author"
+                android:layout_marginStart="10dp"
+                android:text="Category:  "
+                android:textColor="@color/colorBlack" />
+
+
+            <TextView
+                android:id="@+id/category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_author"
+                android:layout_marginStart="10dp"
+                android:layout_toRightOf="@+id/txt_category"
+                android:text="Kid"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/category"
+                android:layout_marginStart="10dp"
+                android:text="Description:  "
+                android:textColor="@color/colorBlack" />
+
+            <com.hendraanggrian.appcompat.widget.SocialTextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_description"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:textColor="@color/colorAccent" />
+
+
+        </RelativeLayout>
+
 
     </LinearLayout>
 

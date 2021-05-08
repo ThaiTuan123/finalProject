@@ -23,7 +23,9 @@
         android:roundIcon="@mipmap/ic_logo_app"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BorrowEmailActivity"></activity>
+        <activity android:name=".AboutUsActivity"></activity>
+        <activity android:name=".UploadEbookActivity" />
+        <activity android:name=".BorrowEmailActivity" />
         <activity android:name=".OptionsActivity" />
         <activity android:name=".OnboardingActivity" />
         <activity android:name=".Fragments.EditProfileActivity" />

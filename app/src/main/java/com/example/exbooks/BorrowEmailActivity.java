@@ -1,5 +1,6 @@
 package com.example.exbooks;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,7 +11,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.example.exbooks.Model.User;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 public class BorrowEmailActivity extends AppCompatActivity {
+
+
+    // private FirebaseUser fUser;
 
     private EditText mEditTextTo;
     private EditText mEditTextSubject;
@@ -59,6 +71,9 @@ public class BorrowEmailActivity extends AppCompatActivity {
         String message = mEditTextMessage.getText().toString();
 
         Intent intent = new Intent(Intent.ACTION_SEND);
+
+
+
         intent.putExtra(Intent.EXTRA_EMAIL, recipients);
         intent.putExtra(Intent.EXTRA_SUBJECT, subject);
         intent.putExtra(Intent.EXTRA_TEXT, message);

@@ -74,6 +74,9 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Viewholder> {
         Picasso.get().load(post.getImageurl()).error(R.mipmap.ic_launcher).into(holder.postImage);
 
         holder.description.setText(post.getDescription());
+        holder.title.setText(post.getTitle());
+        holder.author.setText(post.getAuthor());
+        holder.category.setText(post.getCategory());
 
         // TODO time post
 //        long millisecond = post.getTimeStamp().getTime();
@@ -93,8 +96,9 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Viewholder> {
                 } else {
                     Picasso.get().load(user.getImageurl()).placeholder(R.mipmap.ic_launcher).into(holder.imageProfile);
                 }
-                holder.username.setText(user.getUsername());
-                holder.author.setText(user.getName());
+
+                holder.email.setText(user.getEmail());
+//                holder.author.setText(user.getName());
 
             }
 
@@ -167,7 +171,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Viewholder> {
             }
         });
 
-        holder.username.setOnClickListener(new View.OnClickListener() {
+        holder.email.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mContext.getSharedPreferences("PROFILE", Context.MODE_PRIVATE)
@@ -290,9 +294,12 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Viewholder> {
         public ImageView more;
 
 
-        public TextView username;
+        public TextView email;
         public TextView noOfLikes;
         public TextView author;
+        public TextView title;
+        public TextView category;
+
         public TextView noOfComments;
         SocialTextView description;
 
@@ -308,19 +315,39 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Viewholder> {
 
             more = itemView.findViewById(R.id.more);
 
-            username = itemView.findViewById(R.id.username);
+            email = itemView.findViewById(R.id.email);
             noOfLikes = itemView.findViewById(R.id.no_of_likes);
+
+            title = itemView.findViewById(R.id.title);
             author = itemView.findViewById(R.id.author);
+            category = itemView.findViewById(R.id.category);
+
             noOfComments = itemView.findViewById(R.id.no_of_comments);
             description = itemView.findViewById(R.id.description);
 
 
+            //add
+//            itemView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Intent postDetailFragments = new Intent(mContext,PostDetailFragment.class);
+//                    int position = getAdapterPosition();
+//
+//                     mPosts.get(position);
+//
+//                    postDetailFragments.putExtra("title",mPosts.get(position).getTitle());
+//                    postDetailFragments.putExtra("author",mPosts.get(position).getAuthor());
+//                    //postDetailFragments.putExtra("description",postDetail.getDescription());
+//
+//                    mContext.startActivity(postDetailFragments);
+//
+//
+//                }
+//            });
+
+
         }
-//        add time but it Bug
-//        public void setTime(String date) {
-//            blogDate = itemView.findViewById(R.id.timepost);
-//            blogDate.setText(date);
-//        }
+
     }
 
     private void isLiked(String postId, final LottieAnimationView lottieAnimationView) {
@@ -366,7 +393,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Viewholder> {
         FirebaseDatabase.getInstance().getReference().child("Comments").child(postId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                text.setText("View All " + dataSnapshot.getChildrenCount() + " Comments");
+                text.setText(dataSnapshot.getChildrenCount() + " Comments");
             }
 
             @Override

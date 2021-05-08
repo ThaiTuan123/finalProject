@@ -24,7 +24,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: "libs", include: ["*.jar"])
+  
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 
@@ -73,6 +73,15 @@ dependencies {
     //Onbroading
     implementation 'com.ramotion.paperonboarding:paper-onboarding:1.1.3'
 
+
+    //aboutUs https://github.com/medyo/android-about-page
+    implementation 'com.github.medyo:android-about-page:1.3.1'
+
+
+    // for upload PDF
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.google.code.gson:gson:2.3.1'
+    implementation 'com.karumi:dexter:6.2.2'
 
 
 

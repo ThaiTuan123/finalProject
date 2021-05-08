@@ -9,9 +9,9 @@
             android:title="Home"
             android:checked="true" />
         <item
-        android:id="@+id/search_ebook"
-        android:icon="@drawable/ic_search"
-        android:title="Search ebook" />
+        android:id="@+id/ebook"
+        android:icon="@drawable/ic_ebook"
+        android:title="Ebook" />
         <item
             android:id="@+id/uploadEbook"
             android:icon="@drawable/ic_post"
@@ -32,14 +32,14 @@
 
 
     </group>
-    <item android:title="Profile">
+    <item android:title="Individual">
 
         <menu>
             <group android:checkableBehavior="single">
-                <item
-                    android:id="@+id/profile"
-                    android:icon="@drawable/ic_person"
-                    android:title="Profile" />
+<!--                <item-->
+<!--                    android:id="@+id/profile"-->
+<!--                    android:icon="@drawable/ic_person"-->
+<!--                    android:title="Profile" />-->
                 <item
                     android:id="@+id/logout"
                     android:icon="@drawable/ic_baseline_out"
@@ -86,6 +86,10 @@
                     android:id="@+id/rate_us"
                     android:icon="@drawable/ic_baseline_rate_review"
                     android:title="Rate us" />
+                <item
+                    android:id="@+id/about_us"
+                    android:icon="@drawable/ic_about_us"
+                    android:title="About us" />
 
 
             </group>
